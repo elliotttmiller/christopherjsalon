@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- SEO Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Primary SEO Tags -->
+    <title>Our Team - Christopher J Salon | Plymouth, MN</title>
+    <meta name="description" content="Meet our talented team of stylists, colorists, and specialists at Christopher J Salon in Plymouth, MN. Over 25 years of combined experience.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.christopherjsalon.com/team">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Styles -->
+    <style>
+        /* CSS Variables - Christopher J Salon color scheme */
+        :root {
+            --primary-color: #0b0b0b;
+            --secondary-color: #faf6f2;
+            --accent-color: #b99b5b;
+            --text-primary: #0b0b0b;
+            --text-secondary: #6b6b6b;
+            --text-light: #ffffff;
+            --background-light: #ffffff;
+            --background-dark: #0f0f0f;
+            --background-accent: #fbf8f5;
+            --background-cream: #fbf8f5;
+            --hover-color: #a8894a;
+            --border-color: #eee6dd;
+            
+            --font-primary: 'Inter', sans-serif;
+            --font-display: 'Playfair Display', serif;
+            --section-padding: clamp(3rem, 8vw, 8rem);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--secondary-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Header */
+        .header {
+            background-color: var(--background-light);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1.5rem 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2a2a2a 100%);
+            color: var(--text-light);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Team Section */
+        .team-section {
+            padding: var(--section-padding) 0;
+        }
+        
+        .team-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+        
+        .team-intro h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .team-member {
+            background: var(--background-light);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 3rem;
+            overflow: hidden;
+        }
+        
+        .member-content {
+            padding: 2.5rem;
+        }
+        
+        .member-header {
+            margin-bottom: 1.5rem;
+        }
+        
+        .member-header h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .member-title {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .member-bio {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .member-hours {
+            background: var(--background-accent);
+            padding: 1.5rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .member-hours h4 {
+            font-family: var(--font-display);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.5rem;
+        }
+        
+        .hour-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+        }
+        
+        .day {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .time {
+            color: var(--text-secondary);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--background-dark);
+            color: var(--text-light);
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            .member-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Christopher J Salon</a>
+                
+                <nav class="nav">
+                    <a href="index.html">Home</a>
+                    <a href="services.html">Services</a>
+                    <a href="team.html">Team</a>
+                    <a href="about-us.html">About</a>
+                    <a href="index.html#contact">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Our Team</h1>
+            <p>Meet our talented professionals dedicated to making you look and feel your best</p>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="team-intro">
+                <p>Our award-winning team brings decades of combined experience and ongoing education to deliver exceptional results. Each team member is passionate about their craft and committed to your satisfaction.</p>
+            </div>
+            
+            <!-- Chris -->
+            <div class="team-member">
+                <div class="member-content">
+                    <div class="member-header">
+                        <h3>CHRIS</h3>
+                        <div class="member-title">Owner, Men's Specialist, Master Stylist</div>
+                    </div>
+                    <div class="member-bio">
+                        <p>The art and creativity involved in my work bring me immense joy and fulfillment every day. I cherish the opportunity to collaborate with my clients and friends, and I take great pride in my ability to craft each look with meticulous attention to detail. With over 25 years in the industry, my passion for hairdressing remains as vibrant and exciting as on my first day. My approach is rooted in perfectionism, ensuring that every client receives a personalized and exceptional experience.</p>
+                        <p>When I'm not at the salon, I'm busy with my four beautiful children, and I find balance in biking and enjoying the great outdoors. This blend of professional dedication and personal passion drives me to continually evolve and excel in my craft.</p>
+                    </div>
+                    <div class="member-hours">
+                        <h4>Hours</h4>
+                        <div class="hours-grid">
+                            <div>
+                                <div class="hour-row"><span class="day">Monday:</span> <span class="time">-</span></div>
+                                <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">9:00 am - 3:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">11:30 am - 7:30 pm</span></div>
+                                <div class="hour-row"><span class="day">Thursday:</span> <span class="time">9:00 am - 3:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Friday:</span> <span class="time">10:00 am - 6:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Saturday:</span> <span class="time">8:00 am - 3:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Becky -->
+            <div class="team-member">
+                <div class="member-content">
+                    <div class="member-header">
+                        <h3>BECKY</h3>
+                        <div class="member-title">Owner, Master Color Specialist, and Extension Expert</div>
+                    </div>
+                    <div class="member-bio">
+                        <p>With over 25 years of experience in the industry, I've dedicated my career to the art and science of hair coloring and extensions. My passion for making people look and feel beautiful has driven me to master every aspect of color and extension techniques. From the intricacies of balayage and foiling to the precision of color correction, I thrive on creativity and problem-solving. My extensive knowledge of hair color chemistry and extension applications ensures that we achieve stunning, long-lasting results tailored just for you. If you're seeking a transformative look that enhances your natural beauty and brings out your best, I'm the expert you can trust.</p>
+                        <p>When I'm not in the salon, I devote my time to my family. My four lively and energetic kids keep life exciting and busy. I also love traveling, especially to the beach, and skiing. If I could find a way to bring my color and extension expertise to the shores or the slopes, that would be my paradise!</p>
+                    </div>
+                    <div class="member-hours">
+                        <h4>Hours</h4>
+                        <div class="hours-grid">
+                            <div>
+                                <div class="hour-row"><span class="day">Monday:</span> <span class="time">-</span></div>
+                                <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">9:00 am - 3:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">9:30 am - 4:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Thursday:</span> <span class="time">12:00 pm - 8:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Friday:</span> <span class="time">10:00 am - 3:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Saturday:</span> <span class="time">8:00 am - 3:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Amy -->
+            <div class="team-member">
+                <div class="member-content">
+                    <div class="member-header">
+                        <h3>AMY</h3>
+                        <div class="member-title">Nail Specialist, Manager</div>
+                    </div>
+                    <div class="member-bio">
+                        <p>With over 30 years in the industry, I am passionate about making people feel their best and building strong personal connections with my clients. My expertise spans all nail services, but I have a particular enthusiasm for pedicures and educating clients about the essential practice of foot care. I take pride in delivering exceptional service and ensuring every client leaves feeling pampered and well-informed.</p>
+                        <p>Outside of work, I enjoy playing games and solving puzzles, which allows me to unwind and stimulate my mind. I also cherish spending quality time with my family and dogs, finding joy in the simple pleasures of life.</p>
+                    </div>
+                    <div class="member-hours">
+                        <h4>Hours</h4>
+                        <div class="hours-grid">
+                            <div>
+                                <div class="hour-row"><span class="day">Monday:</span> <span class="time">-</span></div>
+                                <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">-</span></div>
+                                <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">9:00 am - 2:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Thursday:</span> <span class="time">9:00 am - 2:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Friday:</span> <span class="time">9:00 am - 1:30 pm</span></div>
+                                <div class="hour-row"><span class="day">Saturday:</span> <span class="time">8:00 am - 12:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lori -->
+            <div class="team-member">
+                <div class="member-content">
+                    <div class="member-header">
+                        <h3>LORI</h3>
+                        <div class="member-title">Master Stylist</div>
+                    </div>
+                    <div class="member-bio">
+                        <p>With over 25 years in the industry, I bring extensive expertise in cutting, waxing, hair texturizing, Deva Curl, and up-styling. My passion for the beauty industry drives me to stay ahead of trends through continuous education. I've pursued advanced training in Europe and across the US, both on the East and West coasts, to ensure I offer the most current techniques and styles.</p>
+                        <p>Outside of work, I relish spending time skiing, boating, and traveling with my family, finding joy in both my professional and personal pursuits.</p>
+                    </div>
+                    <div class="member-hours">
+                        <h4>Hours</h4>
+                        <div class="hours-grid">
+                            <div>
+                                <div class="hour-row"><span class="day">Monday:</span> <span class="time">10:00 am - 3:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">9:00 am - 3:30 pm</span></div>
+                                <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">2:00 pm - 8:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Thursday:</span> <span class="time">9:00 am - 3:30 pm</span></div>
+                                <div class="hour-row"><span class="day">Friday:</span> <span class="time">9:00 am - 3:30 pm</span></div>
+                                <div class="hour-row"><span class="day">Saturday:</span> <span class="time">-</span></div>
+                                <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tina -->
+            <div class="team-member">
+                <div class="member-content">
+                    <div class="member-header">
+                        <h3>TINA</h3>
+                        <div class="member-title">Master Stylist</div>
+                    </div>
+                    <div class="member-bio">
+                        <p>Are you looking for your hair confidante? I have been a haircut specialist for over 20 years. I believe in the power of a good consultation, this is the moment you and I collaborate. The consultation is where I aim to gain your confidence by diving into the details! What do you love about your hair? What are you struggling with? Together we will create a style that fits you and most importantly make it something you are able to achieve on your own everyday! The best part of my day is spending time with YOU! Laughing together and sharing the stories of our lives. In the salon, I am motivated by making people look and feel their very best! Outside of the salon, I am motivated by the same as I am a wife, mom, & Founder/President of a local non profit, CHMG.</p>
+                    </div>
+                    <div class="member-hours">
+                        <h4>Hours</h4>
+                        <div class="hours-grid">
+                            <div>
+                                <div class="hour-row"><span class="day">Monday:</span> <span class="time">-</span></div>
+                                <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">10:00 am - 4:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">12:00 pm - 8:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Thursday:</span> <span class="time">10:00 am - 3:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Friday:</span> <span class="time">10:00 am - 2:30 pm</span></div>
+                                <div class="hour-row"><span class="day">Saturday:</span> <span class="time">-</span></div>
+                                <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tabitha -->
+            <div class="team-member">
+                <div class="member-content">
+                    <div class="member-header">
+                        <h3>TABITHA</h3>
+                        <div class="member-title">Trichologist and Fine Hair Specialist</div>
+                    </div>
+                    <div class="member-bio">
+                        <p>Being creative makes me happy. I am a triple-certified trichologist and fine hair specialist with a soft touch and an eye for detail.</p>
+                        <p><strong>Confession:</strong> I am a total hair nerd. I am always watching hair videos and taking classes. I listen to hair podcasts, even in the car or walking my German Shepherd. So if you have fine hair, a sensitive scalp, or want to talk about Wine and Netflix, I am your gal!!</p>
+                    </div>
+                    <div class="member-hours">
+                        <h4>Hours</h4>
+                        <div class="hours-grid">
+                            <div>
+                                <div class="hour-row"><span class="day">Monday:</span> <span class="time">-</span></div>
+                                <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">11:00 am - 8:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">9:00 am - 1:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Thursday:</span> <span class="time">12:00 pm - 8:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Friday:</span> <span class="time">9:00 am - 5:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Saturday:</span> <span class="time">9:00 am - 3:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Emily -->
+            <div class="team-member">
+                <div class="member-content">
+                    <div class="member-header">
+                        <h3>EMILY</h3>
+                        <div class="member-title">Color Specialist</div>
+                    </div>
+                    <div class="member-bio">
+                        <p>With 25 years in the hair industry, I specialize solely in hair color, which has always been my passion. I love how color can completely transform a hairstyle, allowing for endless creativity and personalization. Each day, I am thrilled to help clients look and feel their best.</p>
+                        <p>As a busy mom of three young children, my work provides a welcome creative outlet and a refreshing change from my busy family life. I am dedicated to making every client feel beautiful and confident while balancing my professional and personal responsibilities.</p>
+                    </div>
+                    <div class="member-hours">
+                        <h4>Hours</h4>
+                        <div class="hours-grid">
+                            <div>
+                                <div class="hour-row"><span class="day">Monday:</span> <span class="time">-</span></div>
+                                <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">10:00 am - 3:30 pm</span></div>
+                                <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">2:00 pm - 8:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Thursday:</span> <span class="time">-</span></div>
+                                <div class="hour-row"><span class="day">Friday:</span> <span class="time">-</span></div>
+                                <div class="hour-row"><span class="day">Saturday:</span> <span class="time">10:00 am - 3:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Nichole -->
+            <div class="team-member">
+                <div class="member-content">
+                    <div class="member-header">
+                        <h3>NICHOLE COFFMAN</h3>
+                        <div class="member-title">Stylist and Colorist</div>
+                    </div>
+                    <div class="member-bio">
+                        <p>With over a decade of experience as a stylist, I've honed my skills in various settings, from full-service salons to specialized all-men's salons. My expertise lies in men's cuts and color treatments—whether it's balayage, foiling, or a precise fade, I'm your go-to stylist. I pride myself on taking the time to listen and ensure you leave the salon feeling fabulous and confident. Outside of work, I enjoy going to the gym, watching Netflix, and spending time with friends, family, and my beloved cats.</p>
+                    </div>
+                    <div class="member-hours">
+                        <h4>Hours</h4>
+                        <div class="hours-grid">
+                            <div>
+                                <div class="hour-row"><span class="day">Monday:</span> <span class="time">10:00 am - 3:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">1:00 pm - 8:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">-</span></div>
+                                <div class="hour-row"><span class="day">Thursday:</span> <span class="time">11:30 am - 6:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Friday:</span> <span class="time">11:00 am - 5:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Saturday:</span> <span class="time">9:00 am - 3:00 pm</span></div>
+                                <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://stxcloud.com/#/clientlogin/stx_32958" target="_blank" class="btn">Book Your Appointment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Christopher J Salon</h4>
+                    <p>Premier salon in Plymouth, MN</p>
+                    <p>Expert color, cuts, and advanced hair services</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>2700 Annapolis Cir N</p>
+                    <p>Plymouth, MN 55441</p>
+                    <p>Phone: (763) 404-8606</p>
+                    <p>Email: salon@christopherjsalon.com</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Hours</h4>
+                    <p>Tuesday - Friday: 9:00 AM - 6:00 PM</p>
+                    <p>Saturday: 9:00 AM - 4:00 PM</p>
+                    <p>Sunday - Monday: Closed</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <a href="https://www.instagram.com/christopherjsalon/" target="_blank">Instagram</a>
+                    <a href="https://www.facebook.com/ChristopherJSalon" target="_blank">Facebook</a>
+                    <a href="https://twitter.com/CJSalonMN" target="_blank">Twitter</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Christopher J Salon. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
