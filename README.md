@@ -17,8 +17,8 @@ Christopher J Salon is dedicated to remaining on the cutting edge of the beauty 
 📷 **Instagram:** [@christopherjsalon](https://www.instagram.com/christopherjsalon)
 
 ### Hours
-- **Tuesday - Friday:** 10:00 AM - 6:00 PM
-- **Saturday:** 10:00 AM - 4:00 PM
+- **Tuesday - Friday:** 9:00 AM - 6:00 PM
+- **Saturday:** 9:00 AM - 4:00 PM
 - **Sunday - Monday:** Closed
 
 ## Website Features
