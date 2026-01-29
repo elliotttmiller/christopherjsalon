@@ -6,9 +6,14 @@ A modern, responsive website for Christopher J Salon, a premier hair salon in Pl
 
 Christopher J Salon is dedicated to remaining on the cutting edge of the beauty industry. Our team specializes in precision cutting, expert coloring, and client-focused services that deliver beautiful, long-lasting results.
 
+### Services
 - **Hair Extensions** - Premium quality extensions for length, volume, and dimension with seamless blending
 - **Color Services** - From subtle highlights to bold transformations with expert coloring techniques
 - **Personalized Consultations** - Customized plans that work with your lifestyle and maintenance preferences
+
+### Special Offers
+- **Refer a Friend** - Tiered discount program ($10-$30 off for new clients)
+- **Instagram Selfie Contest** - Share your look with #christopherjsalon for a chance to win
 
 ## Location & Contact
 
@@ -17,14 +22,14 @@ Christopher J Salon is dedicated to remaining on the cutting edge of the beauty 
 📷 **Instagram:** [@christopherjsalon](https://www.instagram.com/christopherjsalon)
 
 ### Hours
-- **Tuesday - Friday:** 10:00 AM - 6:00 PM
-- **Saturday:** 10:00 AM - 4:00 PM
+- **Tuesday - Friday:** 9:00 AM - 6:00 PM
+- **Saturday:** 9:00 AM - 4:00 PM
 - **Sunday - Monday:** Closed
 
 ## Website Features
 
 ✨ **Modern Design**
-- Clean, professional layout with Evnia Hair Studio color scheme
+- Clean, professional layout with Christopher J Salon color scheme
 - Elegant typography using Inter and Playfair Display fonts
 - Smooth animations and transitions
 
@@ -44,6 +49,11 @@ Christopher J Salon is dedicated to remaining on the cutting edge of the beauty 
 - Hover effects and animations
 - Contact form with validation
 - Social media integration
+
+🎁 **Promotional Features**
+- Refer a Friend program with tiered discounts
+- Instagram selfie contest (#christopherjsalon)
+- Special offers section
 
 ## Technical Specifications
 

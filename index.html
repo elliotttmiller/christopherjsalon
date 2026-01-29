@@ -67,7 +67,8 @@
         "priceRange": "$$$",
         "sameAs": [
             "https://www.instagram.com/christopherjsalon/",
-            "https://www.facebook.com/ChristopherJSalon"
+            "https://www.facebook.com/ChristopherJSalon",
+            "https://twitter.com/CJSalonMN"
         ]
     }
     </script>
@@ -531,6 +532,89 @@
             }
         }
         
+        /* Promotions Section */
+        .promotions {
+            background: linear-gradient(135deg, var(--background-accent) 0%, var(--secondary-color) 100%);
+        }
+
+        .promotions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--grid-gap);
+            margin-top: 3rem;
+        }
+
+        .promo-card {
+            background: var(--background-light);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid var(--border-color);
+        }
+
+        .promo-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(185, 155, 91, 0.15);
+            border-color: var(--accent-color);
+        }
+
+        .promo-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--accent-color), var(--hover-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(185, 155, 91, 0.3);
+        }
+
+        .promo-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .promo-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .promo-discount {
+            background: var(--background-accent);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .promo-discount-item {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .promo-terms {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        .promo-hashtag {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -559,6 +643,7 @@
                 <nav class="nav">
                     <a href="#home">Home</a>
                     <a href="#services">Services</a>
+                    <a href="#promotions">Offers</a>
                     <a href="#about">About</a>
                     <a href="#contact">Contact</a>
                 </nav>
@@ -619,6 +704,49 @@
                     </div>
                     <h3>Consultations</h3>
                     <p>Personalized consultations to understand your hair goals and create a customized plan that works with your lifestyle and maintenance preferences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotions Section -->
+    <section id="promotions" class="section promotions">
+        <div class="container">
+            <h2 class="section-title">Special Offers</h2>
+            <p class="section-subtitle">Share the beauty and earn rewards!</p>
+            
+            <div class="promotions-grid">
+                <div class="promo-card">
+                    <div class="promo-icon">
+                        <svg width="40" height="40" fill="white" viewBox="0 0 24 24" aria-label="Refer a Friend">
+                            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                        </svg>
+                    </div>
+                    <h3>Refer a Friend</h3>
+                    <p>Love what we do? Tell your friends! They will receive one of the following discounts on their first visit:</p>
+                    
+                    <div class="promo-discount">
+                        <div class="promo-discount-item"><span aria-hidden="true">💰</span> $10 off $30</div>
+                        <div class="promo-discount-item"><span aria-hidden="true">💰</span> $20 off $75</div>
+                        <div class="promo-discount-item"><span aria-hidden="true">💰</span> $30 off $130</div>
+                    </div>
+                    
+                    <p class="promo-terms">Not valid with any other offers or discounts. Not valid on products. You will receive a thank-you discount after your friend's visit.</p>
+                </div>
+                
+                <div class="promo-card">
+                    <div class="promo-icon">
+                        <svg width="40" height="40" fill="white" viewBox="0 0 24 24" aria-label="Take a Selfie">
+                            <path d="M12 15.6c1.8 0 3.3-1.5 3.3-3.3s-1.5-3.3-3.3-3.3-3.3 1.5-3.3 3.3 1.5 3.3 3.3 3.3z"/>
+                            <path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+                        </svg>
+                    </div>
+                    <h3>Take a Selfie</h3>
+                    <p>Share your amazing new look on Instagram and tag us for a chance to win a free service or product!</p>
+                    
+                    <div class="promo-hashtag">#christopherjsalon</div>
+                    
+                    <a href="https://www.instagram.com/christopherjsalon/" target="_blank" rel="noopener noreferrer" class="btn">Follow Us on Instagram</a>
                 </div>
             </div>
         </div>
@@ -800,7 +928,7 @@
         }, observerOptions);
 
         // Observe elements for animation
-        document.querySelectorAll('.service-card, .about-text, .contact-info').forEach(el => {
+        document.querySelectorAll('.service-card, .promo-card, .about-text, .contact-info').forEach(el => {
             observer.observe(el);
         });
     </script>
