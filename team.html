@@ -539,14 +539,65 @@
     <!-- Footer -->
     <div id="footer-placeholder"></div>
 
+    <!-- Fallback footer for SEO and no-JavaScript scenarios -->
+    <noscript>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h4>Christopher J Salon</h4>
+                        <p>Premier salon in Plymouth, MN offering color, cuts, and professional hair services.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <p><a href="https://maps.app.goo.gl/sKnZo4jwnBNi2iHz5" target="_blank" rel="noopener noreferrer">2700 Annapolis Cir N<br>Plymouth, MN 55441</a></p>
+                        <p><a href="tel:763-404-8606">(763) 404-8606</a></p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Hours</h4>
+                        <p>Tue-Fri: 9AM-6PM<br>Saturday: 9AM-4PM<br>Sun-Mon: Closed</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Christopher J Salon. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </noscript>
+
     <script>
-        // Load shared footer
+        // Load shared footer with proper error handling
         fetch('_footer.html')
-            .then(response => response.text())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Footer not found');
+                }
+                return response.text();
+            })
             .then(data => {
                 document.getElementById('footer-placeholder').innerHTML = data;
             })
-            .catch(error => console.error('Error loading footer:', error));
+            .catch(error => {
+                console.error('Error loading footer:', error);
+                // Fallback to basic footer if fetch fails
+                document.getElementById('footer-placeholder').innerHTML = `
+                    <footer class="footer">
+                        <div class="container">
+                            <div class="footer-content">
+                                <div class="footer-section">
+                                    <h4>Christopher J Salon</h4>
+                                    <p>Premier salon in Plymouth, MN offering color, cuts, and professional hair services.</p>
+                                </div>
+                                <div class="footer-section">
+                                    <h4>Contact</h4>
+                                    <p><a href="tel:763-404-8606">(763) 404-8606</a></p>
+                                    <p>2700 Annapolis Cir N, Plymouth, MN 55441</p>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                `;
+            });
     </script>
 </body>
 </html>
