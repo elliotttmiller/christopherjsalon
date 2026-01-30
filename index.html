@@ -76,23 +76,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Preload hero image for better LCP -->
+    <link rel="preload" as="image" href="images/featuredImage-1.jpg">
     
     <!-- CSS Styles -->
     <style>
-        /* CSS Variables - Christopher J Salon color scheme */
+        /* CSS Variables - Christopher J Salon dark theme */
         :root {
-            --primary-color: #0b0b0b; /* deep charcoal for text */
-            --secondary-color: #faf6f2; /* warm off-white background */
-            --accent-color: #b99b5b; /* warm gold accent */
-            --text-primary: #0b0b0b;
-            --text-secondary: #6b6b6b;
+            --primary-color: #ffffff;
+            --secondary-color: #1a1a1a;
+            --accent-color: #1e4aa7; /* blue accent sampled from hero image */
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
             --text-light: #ffffff;
-            --background-light: #ffffff;
-            --background-dark: #0f0f0f;
-            --background-accent: #fbf8f5;
-            --background-cream: #fbf8f5;
-            --hover-color: #a8894a;
-            --border-color: #eee6dd;
+            --background-light: #0f0f0f;
+            --background-dark: #000000;
+            --background-card: #1a1a1a;
+            --background-accent: #252525;
+            --hover-color: #2d5fc4; /* lighter blue for hover on dark */
+            --border-color: #333333;
 
             /* Typography */
             --font-primary: 'Inter', sans-serif;
@@ -127,13 +129,13 @@
             padding: 0 var(--container-padding);
         }
         
-        /* Header Styles */
+        /* Header Styles - Dark theme */
         .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(250,249,244,0.95);
+            background: rgba(0,0,0,0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             transition: all 0.3s ease;
@@ -141,8 +143,8 @@
         }
         
         .header.scrolled {
-            background: rgba(250,249,244,0.98);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            background: rgba(0,0,0,0.98);
+            box-shadow: 0 2px 20px rgba(30, 74, 167, 0.3);
         }
         
         .header-content {
@@ -244,13 +246,13 @@
             font-weight: 600;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            color: var(--text-primary);
+                color: var(--text-light);
             letter-spacing: -0.02em;
         }
         
         .hero-subtitle {
             font-size: clamp(1.2rem, 3vw, 1.5rem);
-            color: var(--text-secondary);
+                color: rgba(255,255,255,0.9);
             margin-bottom: 2rem;
             font-weight: 400;
         }
@@ -308,7 +310,7 @@
             margin: 0 auto 3rem;
         }
         
-        /* Services Section */
+        /* Services Section - Dark theme */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -317,28 +319,19 @@
         }
         
         .service-card {
-            background: var(--background-light);
+            background: var(--background-card);
             padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--border-color);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
         }
         
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 1.5rem;
-            background: var(--accent-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            box-shadow: 0 8px 30px rgba(30, 74, 167, 0.4);
+            border-color: var(--accent-color);
         }
         
         .service-card h3 {
@@ -426,12 +419,13 @@
             text-decoration: underline;
         }
         
-        /* Footer */
+        /* Footer - Dark theme */
         .footer {
             background: var(--background-dark);
             color: var(--text-light);
             padding: 3rem 0 2rem;
             text-align: center;
+            border-top: 2px solid var(--border-color);
         }
         
         .footer-content {
@@ -450,10 +444,10 @@
         
         .footer-section p,
         .footer-section a {
-            color: var(--text-light);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             opacity: 0.8;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease, color 0.3s ease;
         }
         
         .footer-section a:hover {
@@ -493,8 +487,15 @@
             width: 40px;
             height: 40px;
             border-radius: 8px;
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.04);
+            background: var(--background-card);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .footer .social-link:hover {
+            border-color: var(--accent-color);
+            background: rgba(30,74,167,0.1);
+            transform: translateY(-2px);
         }
 
         .footer .social-link:hover .social-icon {
@@ -503,10 +504,10 @@
         }
         
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid var(--border-color);
             padding-top: 2rem;
             font-size: 0.9rem;
-            opacity: 0.7;
+            opacity: 0.6;
         }
         
         /* Responsive Design */
@@ -629,6 +630,71 @@
         .animate-fade-in {
             animation: fadeInUp 0.6s ease-out;
         }
+
+        /* Background utilities and hero implementations */
+        .bg-cover { background-size: cover; background-repeat: no-repeat; background-position: center center; }
+        .bg-overlay { position: relative; }
+        .bg-overlay::after { content: ""; position: absolute; inset: 0; background: rgba(11,11,11,0.36); pointer-events: none; }
+
+        /* Specific section backgrounds (pick best images from /images) */
+        .bg-home { background-image: url("images/featuredImage-1.jpg"); }
+        .bg-services { background-image: url("images/2090218.jpg"); }
+        .bg-about { background-image: url("images/l.jpg"); }
+        .bg-contact { background-image: url("images/R.jpg"); }
+
+        /* Apply cover behavior and sizing to sections that use backgrounds */
+        .bg-section { background-color: #111; color: var(--text-light); }
+        .bg-section.bg-cover, .hero.bg-cover { background-size: cover; background-position: center center; background-repeat: no-repeat; }
+
+        /* Responsive swaps (if you later add optimized variants, swap here) */
+        /* If you add optimized mid/large variants, swap them in here with background-image rules */
+        
+        /* Background utilities and hero slideshow styles */
+        .bg-cover { background-size: cover; background-repeat: no-repeat; background-position: center center; }
+
+        /* Hero container */
+        .hero { min-height: clamp(55vh, 70vh, 85vh); display: grid; align-items: center; position: relative; overflow: hidden; }
+        .hero .hero-content { position: relative; z-index: 3; max-width: 1100px; margin: 0 auto; text-align: center; }
+
+        /* Slideshow */
+        .hero-slider { position: absolute; inset: 0; z-index: 1; }
+        .slide { position: absolute; inset: 0; background-size: cover; background-position: center center; background-repeat: no-repeat; opacity: 0; transition: opacity 1s ease-in-out; }
+        .slide.active { opacity: 1; z-index: 2; }
+        .slide::after { content: ""; position: absolute; inset: 0; background: rgba(8,8,8,0.38); }
+
+        /* Dots */
+        .slider-dots { position: absolute; left: 50%; transform: translateX(-50%); bottom: 2rem; display: flex; gap: 0.5rem; z-index: 4; }
+        .slider-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.45); cursor: pointer; border: 0; }
+        .slider-dot.active { background: var(--accent-color); box-shadow: 0 0 0 4px rgba(185,155,91,0.12); }
+
+        /* Ensure readable content layer */
+        .hero .hero-content * { color: var(--text-light); }
+
+    /* Hero tweaks */
+    .hero { min-height: clamp(60vh, 75vh, 95vh); display: grid; align-items: start; position: relative; padding: clamp(6rem, 12vh, 9rem) 1rem clamp(3rem,6vw,5rem); }
+    .hero .hero-content { position: relative; z-index: 2; margin-top: clamp(1rem, 6vh, 3rem); }
+
+        /* Ensure text is readable over images */
+        .bg-section .container, .hero .container { position: relative; z-index: 2; }
+
+        /* Force light text colors on sections that use background images */
+        .bg-section h1,
+        .bg-section h2,
+        .bg-section h3,
+        .bg-section p,
+        .bg-section li,
+        .bg-section a,
+        .bg-section .hero-subtitle,
+        .bg-section .section-title {
+            color: var(--text-light) !important;
+        }
+
+        .bg-section a { color: rgba(255,255,255,0.9) !important; text-decoration: underline; }
+        .bg-section a:hover { color: var(--accent-color) !important; }
+
+        /* Ensure secondary buttons remain visible on dark backgrounds */
+        .bg-section .btn-secondary { color: var(--text-light) !important; border-color: rgba(255,255,255,0.18) !important; }
+
     </style>
 </head>
 
@@ -656,16 +722,24 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (slideshow) -->
     <section id="home" class="hero">
+        <div class="hero-slider" aria-hidden="false">
+            <div class="slide" style="background-image: url('images/slider-4.jpg')" data-index="0"></div>
+            <div class="slide" style="background-image: url('images/featuredImage-1.jpg')" data-index="1"></div>
+            <div class="slide" style="background-image: url('images/2090218.jpg')" data-index="2"></div>
+        </div>
+
         <div class="container">
             <div class="hero-content animate-fade-in">
-                <h1>Welcome to Christopher J Salon</h1>
+                <h1>Plymouth Minnesota's Top Salon</h1>
                 <p class="hero-subtitle">Plymouth, MN — Color, cuts, and advanced hair services from industry-leading stylists.</p>
-                <a href="https://stxcloud.com/#/clientlogin/stx_32958" target="_blank" class="btn">Book Appointment</a>
+                <a href="https://stxcloud.com/#/clientlogin/stx_32958" target="_blank" class="btn btn-secondary">Book Appointment</a>
                 <a href="#services" class="btn btn-secondary">View Services</a>
             </div>
         </div>
+
+        <div class="slider-dots" role="tablist" aria-label="Hero image controls"></div>
     </section>
 
     <!-- Services Section -->
@@ -676,31 +750,16 @@
             
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="30" height="30" fill="white" viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                    </div>
                     <h3>Hair Extensions</h3>
                     <p>Premium quality extensions for length, volume, and dimension. We specialize in seamless blending and natural-looking results that enhance your unique style.</p>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="30" height="30" fill="white" viewBox="0 0 24 24">
-                            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
-                        </svg>
-                    </div>
                     <h3>Color Services</h3>
                     <p>From subtle highlights to bold transformations, our expert coloring techniques will give you the perfect shade that complements your skin tone and personality.</p>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="30" height="30" fill="white" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                    </div>
                     <h3>Consultations</h3>
                     <p>Personalized consultations to understand your hair goals and create a customized plan that works with your lifestyle and maintenance preferences.</p>
                 </div>
@@ -718,7 +777,7 @@
                     <h2>About Christopher J Salon</h2>
                     <p>Christopher J Salon is dedicated to remaining on the cutting edge of the beauty industry. Our team delivers expert color, precision cutting, and personalized services to help you look and feel your best.</p>
                     <p>We combine ongoing education, professional products, and a client-first approach to deliver consistent, beautiful results in a welcoming environment.</p>
-                    <a href="https://stxcloud.com/#/clientlogin/stx_32958" target="_blank" class="btn">Book Your Consultation</a>
+                    <a href="https://stxcloud.com/#/clientlogin/stx_32958" target="_blank" class="btn btn-secondary">Book Your Consultation</a>
                 </div>
                 <div class="about-image">
                     <img src="/images/christopher-team.jpg" alt="Christopher J Salon team" loading="lazy">
@@ -772,7 +831,7 @@
                         <div style="margin-bottom: 1rem;">
                             <textarea placeholder="Tell us about your hair goals..." rows="5" style="width: 100%; padding: 1rem; border: 1px solid var(--border-color); border-radius: 8px; resize: vertical;"></textarea>
                         </div>
-                        <button type="submit" class="btn" style="border: none; cursor: pointer;">Send Message</button>
+                        <button type="submit" class="btn btn-secondary" style="border: none; cursor: pointer;">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -885,6 +944,44 @@
         document.querySelectorAll('.service-card, .promo-card, .about-text, .contact-info').forEach(el => {
             observer.observe(el);
         });
+
+        // Hero slideshow
+        (function initHeroSlider(){
+            const slider = document.querySelector('.hero-slider');
+            if (!slider) return;
+            const slides = Array.from(slider.querySelectorAll('.slide'));
+            if (!slides.length) return;
+
+            let current = 0;
+            slides.forEach((s,i)=> { if(i===0) s.classList.add('active'); else s.classList.remove('active'); });
+
+            const dotsContainer = document.querySelector('.slider-dots');
+            slides.forEach((_,i)=>{
+                const btn = document.createElement('button');
+                btn.className = 'slider-dot';
+                btn.setAttribute('aria-label', `Show slide ${i+1}`);
+                btn.addEventListener('click', ()=>{ showSlide(i); resetTimer(); });
+                if(i===0) btn.classList.add('active');
+                dotsContainer.appendChild(btn);
+            });
+
+            function showSlide(index){
+                slides[current].classList.remove('active');
+                dotsContainer.children[current].classList.remove('active');
+                current = index;
+                slides[current].classList.add('active');
+                dotsContainer.children[current].classList.add('active');
+            }
+
+            function next(){ showSlide((current+1) % slides.length); }
+
+            let timer = setInterval(next, 5000);
+            function resetTimer(){ clearInterval(timer); timer = setInterval(next, 5000); }
+
+            const hero = document.querySelector('.hero');
+            hero.addEventListener('mouseenter', ()=> clearInterval(timer));
+            hero.addEventListener('mouseleave', ()=> { resetTimer(); });
+        })();
     </script>
 </body>
 </html>

@@ -20,20 +20,20 @@
     
     <!-- CSS Styles -->
     <style>
-        /* CSS Variables - Christopher J Salon color scheme */
+        /* CSS Variables - Christopher J Salon dark theme */
         :root {
-            --primary-color: #0b0b0b;
-            --secondary-color: #faf6f2;
-            --accent-color: #b99b5b;
-            --text-primary: #0b0b0b;
-            --text-secondary: #6b6b6b;
+            --primary-color: #ffffff;
+            --secondary-color: #1a1a1a;
+            --accent-color: #1e4aa7; /* blue accent sampled from hero image */
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
             --text-light: #ffffff;
-            --background-light: #ffffff;
-            --background-dark: #0f0f0f;
-            --background-accent: #fbf8f5;
-            --background-cream: #fbf8f5;
-            --hover-color: #a8894a;
-            --border-color: #eee6dd;
+            --background-light: #0f0f0f;
+            --background-dark: #000000;
+            --background-card: #1a1a1a;
+            --background-accent: #252525;
+            --hover-color: #2d5fc4; /* lighter blue for hover on dark */
+            --border-color: #333333;
             
             --font-primary: 'Inter', sans-serif;
             --font-display: 'Playfair Display', serif;
@@ -59,10 +59,11 @@
             padding: 0 1.5rem;
         }
         
-        /* Header */
+        /* Header - Dark theme */
         .header {
-            background-color: var(--background-light);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            background-color: var(--background-dark);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -99,12 +100,13 @@
             color: var(--accent-color);
         }
         
-        /* Page Header */
+        /* Page Header - Dark theme gradient */
         .page-header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #2a2a2a 100%);
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, var(--accent-color) 100%);
             color: var(--text-light);
             padding: 4rem 0;
             text-align: center;
+            border-bottom: 2px solid var(--accent-color);
         }
         
         .page-header h1 {
@@ -133,30 +135,99 @@
             font-family: var(--font-display);
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: var(--primary-color);
+            color: var(--text-primary);
         }
         
+        /* Dark theme team member cards */
         .team-member {
-            background: var(--background-light);
+            background: var(--background-card);
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+            border: 1px solid var(--border-color);
             margin-bottom: 3rem;
             overflow: hidden;
+            display: grid;
+            /* photo | main content | hours */
+            grid-template-columns: minmax(300px,40%) 1fr 220px;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .member-photo {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            overflow: hidden;
+            background: linear-gradient(180deg, #0f0f0f, #1a1a1a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .member-photo.placeholder {
+            font-family: var(--font-display);
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
         }
         
         .member-content {
             padding: 2.5rem;
+            display: grid;
+            grid-template-columns: 1fr; /* header + bio stack */
+            gap: 1rem;
+            align-items: start;
+            grid-column: 2 / 3; /* place content in middle column */
+            background: var(--background-card);
         }
         
         .member-header {
             margin-bottom: 1.5rem;
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
         
         .member-header h3 {
             font-family: var(--font-display);
             font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            margin-bottom: 0;
+        }
+        
+        .member-instagram {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(131, 58, 180, 0.3);
+        }
+        
+        .member-instagram:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 4px 12px rgba(131, 58, 180, 0.4);
+        }
+        
+        .member-instagram svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
         }
         
         .member-title {
@@ -170,50 +241,73 @@
             color: var(--text-secondary);
             line-height: 1.8;
             margin-bottom: 2rem;
+            grid-column: 1 / -1;
         }
         
+        /* Compact hours component - dark theme */
         .member-hours {
-            background: var(--background-accent);
-            padding: 1.5rem;
+            background: linear-gradient(180deg, rgba(30,74,167,0.15), rgba(21,58,124,0.08));
+            padding: 0.75rem;
             border-radius: 6px;
-            border-left: 4px solid var(--accent-color);
+            border-left: 3px solid var(--accent-color);
+            border: 1px solid rgba(30,74,167,0.3);
+            border-left: 3px solid var(--accent-color);
+            grid-column: 3 / 4; /* place in right-most column */
+            grid-row: 1 / 2;
+            align-self: start;
+            width: 100%;
+            max-width: 220px;
+            box-shadow: 0 2px 12px rgba(30,74,167,0.2);
         }
         
         .member-hours h4 {
             font-family: var(--font-display);
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin: 0 0 0.5rem 0;
+            font-size: 0.95rem;
+            letter-spacing: 0.03em;
+            font-weight: 600;
         }
         
         .hours-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 0.5rem;
+            display: block;
         }
         
+        /* Stacked day/time rows - dark theme */
         .hour-row {
             display: flex;
-            justify-content: space-between;
-            padding: 0.5rem 0;
+            flex-direction: column;
+            padding: 0.35rem 0;
+            gap: 0.1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .hour-row:last-child {
+            border-bottom: none;
         }
         
         .day {
-            font-weight: 600;
-            color: var(--primary-color);
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 0.8rem;
+            letter-spacing: 0.02em;
         }
         
         .time {
             color: var(--text-secondary);
+            font-size: 0.78rem;
+            line-height: 1.3;
+            padding-left: 0.15rem;
         }
         
-        /* Footer Styles - Complete implementation */
+        /* Footer - Dark theme */
         .footer {
             background: var(--background-dark);
             color: var(--text-light);
             padding: 3rem 0 2rem;
             text-align: center;
             margin-top: 4rem;
+            border-top: 2px solid var(--border-color);
         }
         
         .footer-content {
@@ -232,20 +326,20 @@
         }
         
         .footer-section p {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.7);
             line-height: 1.6;
             margin-bottom: 0.5rem;
         }
         
         .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             transition: color 0.3s ease, opacity 0.3s ease;
             opacity: 0.8;
         }
         
         .footer-section a:hover {
-            color: var(--accent-color);
+            color: var(--hover-color);
             opacity: 1;
         }
         
@@ -264,13 +358,14 @@
             width: 56px;
             height: 56px;
             border-radius: 50%;
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.04);
+            background: var(--background-card);
+            border: 1px solid var(--border-color);
             transition: all 0.3s ease;
         }
         
         .footer .social-link:hover {
             border-color: var(--accent-color);
+            background: rgba(30,74,167,0.1);
             transform: translateY(-2px);
         }
         
@@ -286,13 +381,14 @@
         }
         
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid var(--border-color);
             padding-top: 1.5rem;
             margin-top: 2rem;
             font-size: 0.9rem;
-            opacity: 0.7;
+            opacity: 0.6;
         }
         
+        /* Dark theme button */
         .btn {
             display: inline-block;
             padding: 1rem 2rem;
@@ -303,11 +399,13 @@
             font-weight: 600;
             transition: all 0.3s;
             margin-top: 1rem;
+            box-shadow: 0 4px 12px rgba(30,74,167,0.3);
         }
         
         .btn:hover {
             background-color: var(--hover-color);
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30,74,167,0.5);
         }
         
         @media (max-width: 768px) {
@@ -317,6 +415,22 @@
             
             .member-content {
                 padding: 1.5rem;
+            }
+            .team-member {
+                grid-template-columns: 1fr;
+            }
+
+            .member-photo {
+                min-height: 260px;
+            }
+            /* When stacked, make hours full width under the bio */
+            .member-content {
+                grid-template-columns: 1fr;
+            }
+            .member-hours {
+                grid-column: 1 / -1;
+                max-width: 100%;
+                margin-top: 1rem;
             }
         }
     </style>
@@ -356,27 +470,35 @@
             
             <!-- Chris -->
             <div class="team-member">
+                <div class="member-photo">
+                    <img src="images/stylists/chris.png" alt="Chris — Owner, Men's Specialist">
+                </div>
                 <div class="member-content">
                     <div class="member-header">
                         <h3>CHRIS</h3>
-                        <div class="member-title">Owner, Men's Specialist, Master Stylist</div>
+                        <a href="https://www.instagram.com/christopherjsalon" target="_blank" rel="noopener noreferrer" class="member-instagram" aria-label="Chris on Instagram">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.507 5.507 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.504 3.504 0 0 0 12 9.5zM18.5 6a1 1 0 1 1-1-1 1 1 0 0 1 1 1z"/>
+                            </svg>
+                        </a>
                     </div>
+                    <div class="member-title">Owner, Men's Specialist, Master Stylist</div>
                     <div class="member-bio">
                         <p>The art and creativity involved in my work bring me immense joy and fulfillment every day. I cherish the opportunity to collaborate with my clients and friends, and I take great pride in my ability to craft each look with meticulous attention to detail. With over 25 years in the industry, my passion for hairdressing remains as vibrant and exciting as on my first day. My approach is rooted in perfectionism, ensuring that every client receives a personalized and exceptional experience.</p>
                         <p>When I'm not at the salon, I'm busy with my four beautiful children, and I find balance in biking and enjoying the great outdoors. This blend of professional dedication and personal passion drives me to continually evolve and excel in my craft.</p>
                     </div>
-                    <div class="member-hours">
-                        <h4>Hours</h4>
-                        <div class="hours-grid">
-                            <div>
-                                <div class="hour-row"><span class="day">Monday:</span> <span class="time">-</span></div>
-                                <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">9:00 am - 3:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">11:30 am - 7:30 pm</span></div>
-                                <div class="hour-row"><span class="day">Thursday:</span> <span class="time">9:00 am - 3:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Friday:</span> <span class="time">10:00 am - 6:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Saturday:</span> <span class="time">8:00 am - 3:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
-                            </div>
+                </div>
+                <div class="member-hours">
+                    <h4>Hours</h4>
+                    <div class="hours-grid">
+                        <div>
+                            <div class="hour-row"><span class="day">Monday:</span> <span class="time">-</span></div>
+                            <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">9:00 am - 3:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">11:30 am - 7:30 pm</span></div>
+                            <div class="hour-row"><span class="day">Thursday:</span> <span class="time">9:00 am - 3:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Friday:</span> <span class="time">10:00 am - 6:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Saturday:</span> <span class="time">8:00 am - 3:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
                         </div>
                     </div>
                 </div>
@@ -384,27 +506,35 @@
             
             <!-- Becky -->
             <div class="team-member">
+                <div class="member-photo">
+                    <img src="images/stylists/becky.png" alt="Becky — Owner, Master Color Specialist">
+                </div>
                 <div class="member-content">
                     <div class="member-header">
                         <h3>BECKY</h3>
-                        <div class="member-title">Owner, Master Color Specialist, and Extension Expert</div>
+                        <a href="https://www.instagram.com/christopherjsalon" target="_blank" rel="noopener noreferrer" class="member-instagram" aria-label="Becky on Instagram">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.507 5.507 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.504 3.504 0 0 0 12 9.5zM18.5 6a1 1 0 1 1-1-1 1 1 0 0 1 1 1z"/>
+                            </svg>
+                        </a>
                     </div>
+                    <div class="member-title">Owner, Master Color Specialist, and Extension Expert</div>
                     <div class="member-bio">
                         <p>With over 25 years of experience in the industry, I've dedicated my career to the art and science of hair coloring and extensions. My passion for making people look and feel beautiful has driven me to master every aspect of color and extension techniques. From the intricacies of balayage and foiling to the precision of color correction, I thrive on creativity and problem-solving. My extensive knowledge of hair color chemistry and extension applications ensures that we achieve stunning, long-lasting results tailored just for you. If you're seeking a transformative look that enhances your natural beauty and brings out your best, I'm the expert you can trust.</p>
                         <p>When I'm not in the salon, I devote my time to my family. My four lively and energetic kids keep life exciting and busy. I also love traveling, especially to the beach, and skiing. If I could find a way to bring my color and extension expertise to the shores or the slopes, that would be my paradise!</p>
                     </div>
-                    <div class="member-hours">
-                        <h4>Hours</h4>
-                        <div class="hours-grid">
-                            <div>
-                                <div class="hour-row"><span class="day">Monday:</span> <span class="time">-</span></div>
-                                <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">9:00 am - 3:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">9:30 am - 4:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Thursday:</span> <span class="time">12:00 pm - 8:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Friday:</span> <span class="time">10:00 am - 3:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Saturday:</span> <span class="time">8:00 am - 3:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
-                            </div>
+                </div>
+                <div class="member-hours">
+                    <h4>Hours</h4>
+                    <div class="hours-grid">
+                        <div>
+                            <div class="hour-row"><span class="day">Monday:</span> <span class="time">-</span></div>
+                            <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">9:00 am - 3:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">9:30 am - 4:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Thursday:</span> <span class="time">12:00 pm - 8:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Friday:</span> <span class="time">10:00 am - 3:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Saturday:</span> <span class="time">8:00 am - 3:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
                         </div>
                     </div>
                 </div>
@@ -412,27 +542,35 @@
             
             <!-- Amy -->
             <div class="team-member">
+                <div class="member-photo">
+                    <img src="images/stylists/amy.png" alt="Amy — Nail Specialist, Manager">
+                </div>
                 <div class="member-content">
                     <div class="member-header">
                         <h3>AMY</h3>
-                        <div class="member-title">Nail Specialist, Manager</div>
+                        <a href="https://www.instagram.com/christopherjsalon" target="_blank" rel="noopener noreferrer" class="member-instagram" aria-label="Amy on Instagram">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.507 5.507 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.504 3.504 0 0 0 12 9.5zM18.5 6a1 1 0 1 1-1-1 1 1 0 0 1 1 1z"/>
+                            </svg>
+                        </a>
                     </div>
+                    <div class="member-title">Nail Specialist, Manager</div>
                     <div class="member-bio">
                         <p>With over 30 years in the industry, I am passionate about making people feel their best and building strong personal connections with my clients. My expertise spans all nail services, but I have a particular enthusiasm for pedicures and educating clients about the essential practice of foot care. I take pride in delivering exceptional service and ensuring every client leaves feeling pampered and well-informed.</p>
                         <p>Outside of work, I enjoy playing games and solving puzzles, which allows me to unwind and stimulate my mind. I also cherish spending quality time with my family and dogs, finding joy in the simple pleasures of life.</p>
                     </div>
-                    <div class="member-hours">
-                        <h4>Hours</h4>
-                        <div class="hours-grid">
-                            <div>
-                                <div class="hour-row"><span class="day">Monday:</span> <span class="time">-</span></div>
-                                <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">-</span></div>
-                                <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">9:00 am - 2:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Thursday:</span> <span class="time">9:00 am - 2:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Friday:</span> <span class="time">9:00 am - 1:30 pm</span></div>
-                                <div class="hour-row"><span class="day">Saturday:</span> <span class="time">8:00 am - 12:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
-                            </div>
+                </div>
+                <div class="member-hours">
+                    <h4>Hours</h4>
+                    <div class="hours-grid">
+                        <div>
+                            <div class="hour-row"><span class="day">Monday:</span> <span class="time">-</span></div>
+                            <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">-</span></div>
+                            <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">9:00 am - 2:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Thursday:</span> <span class="time">9:00 am - 2:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Friday:</span> <span class="time">9:00 am - 1:30 pm</span></div>
+                            <div class="hour-row"><span class="day">Saturday:</span> <span class="time">8:00 am - 12:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
                         </div>
                     </div>
                 </div>
@@ -440,82 +578,73 @@
             
             <!-- Lori -->
             <div class="team-member">
+                <div class="member-photo">
+                    <img src="images/stylists/lori.png" alt="Lori — Master Stylist">
+                </div>
                 <div class="member-content">
                     <div class="member-header">
                         <h3>LORI</h3>
-                        <div class="member-title">Master Stylist</div>
+                        <a href="https://www.instagram.com/christopherjsalon" target="_blank" rel="noopener noreferrer" class="member-instagram" aria-label="Lori on Instagram">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.507 5.507 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.504 3.504 0 0 0 12 9.5zM18.5 6a1 1 0 1 1-1-1 1 1 0 0 1 1 1z"/>
+                            </svg>
+                        </a>
                     </div>
+                    <div class="member-title">Master Stylist</div>
                     <div class="member-bio">
                         <p>With over 25 years in the industry, I bring extensive expertise in cutting, waxing, hair texturizing, Deva Curl, and up-styling. My passion for the beauty industry drives me to stay ahead of trends through continuous education. I've pursued advanced training in Europe and across the US, both on the East and West coasts, to ensure I offer the most current techniques and styles.</p>
                         <p>Outside of work, I relish spending time skiing, boating, and traveling with my family, finding joy in both my professional and personal pursuits.</p>
                     </div>
-                    <div class="member-hours">
-                        <h4>Hours</h4>
-                        <div class="hours-grid">
-                            <div>
-                                <div class="hour-row"><span class="day">Monday:</span> <span class="time">10:00 am - 3:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">9:00 am - 3:30 pm</span></div>
-                                <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">2:00 pm - 8:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Thursday:</span> <span class="time">9:00 am - 3:30 pm</span></div>
-                                <div class="hour-row"><span class="day">Friday:</span> <span class="time">9:00 am - 3:30 pm</span></div>
-                                <div class="hour-row"><span class="day">Saturday:</span> <span class="time">-</span></div>
-                                <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
-                            </div>
+                </div>
+                <div class="member-hours">
+                    <h4>Hours</h4>
+                    <div class="hours-grid">
+                        <div>
+                            <div class="hour-row"><span class="day">Monday:</span> <span class="time">10:00 am - 3:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">9:00 am - 3:30 pm</span></div>
+                            <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">2:00 pm - 8:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Thursday:</span> <span class="time">9:00 am - 3:30 pm</span></div>
+                            <div class="hour-row"><span class="day">Friday:</span> <span class="time">9:00 am - 3:30 pm</span></div>
+                            <div class="hour-row"><span class="day">Saturday:</span> <span class="time">-</span></div>
+                            <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Tina -->
-            <div class="team-member">
-                <div class="member-content">
-                    <div class="member-header">
-                        <h3>TINA</h3>
-                        <div class="member-title">Master Stylist</div>
-                    </div>
-                    <div class="member-bio">
-                        <p>Are you looking for your hair confidante? I have been a haircut specialist for over 20 years. I believe in the power of a good consultation, this is the moment you and I collaborate. The consultation is where I aim to gain your confidence by diving into the details! What do you love about your hair? What are you struggling with? Together we will create a style that fits you and most importantly make it something you are able to achieve on your own everyday! The best part of my day is spending time with YOU! Laughing together and sharing the stories of our lives. In the salon, I am motivated by making people look and feel their very best! Outside of the salon, I am motivated by the same as I am a wife, mom, & Founder/President of a local non profit, CHMG.</p>
-                    </div>
-                    <div class="member-hours">
-                        <h4>Hours</h4>
-                        <div class="hours-grid">
-                            <div>
-                                <div class="hour-row"><span class="day">Monday:</span> <span class="time">-</span></div>
-                                <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">10:00 am - 4:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">12:00 pm - 8:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Thursday:</span> <span class="time">10:00 am - 3:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Friday:</span> <span class="time">10:00 am - 2:30 pm</span></div>
-                                <div class="hour-row"><span class="day">Saturday:</span> <span class="time">-</span></div>
-                                <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Tina (removed) -->
             
             <!-- Tabitha -->
             <div class="team-member">
+                <div class="member-photo">
+                    <img src="images/stylists/tabitha.png" alt="Tabitha — Trichologist and Fine Hair Specialist">
+                </div>
                 <div class="member-content">
                     <div class="member-header">
                         <h3>TABITHA</h3>
-                        <div class="member-title">Trichologist and Fine Hair Specialist</div>
+                        <a href="https://www.instagram.com/christopherjsalon" target="_blank" rel="noopener noreferrer" class="member-instagram" aria-label="Tabitha on Instagram">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.507 5.507 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.504 3.504 0 0 0 12 9.5zM18.5 6a1 1 0 1 1-1-1 1 1 0 0 1 1 1z"/>
+                            </svg>
+                        </a>
                     </div>
+                    <div class="member-title">Trichologist and Fine Hair Specialist</div>
                     <div class="member-bio">
                         <p>Being creative makes me happy. I am a triple-certified trichologist and fine hair specialist with a soft touch and an eye for detail.</p>
                         <p><strong>Confession:</strong> I am a total hair nerd. I am always watching hair videos and taking classes. I listen to hair podcasts, even in the car or walking my German Shepherd. So if you have fine hair, a sensitive scalp, or want to talk about Wine and Netflix, I am your gal!!</p>
                     </div>
-                    <div class="member-hours">
-                        <h4>Hours</h4>
-                        <div class="hours-grid">
-                            <div>
-                                <div class="hour-row"><span class="day">Monday:</span> <span class="time">-</span></div>
-                                <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">11:00 am - 8:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">9:00 am - 1:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Thursday:</span> <span class="time">12:00 pm - 8:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Friday:</span> <span class="time">9:00 am - 5:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Saturday:</span> <span class="time">9:00 am - 3:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
-                            </div>
+                </div>
+                <div class="member-hours">
+                    <h4>Hours</h4>
+                    <div class="hours-grid">
+                        <div>
+                            <div class="hour-row"><span class="day">Monday:</span> <span class="time">-</span></div>
+                            <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">11:00 am - 8:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">9:00 am - 1:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Thursday:</span> <span class="time">12:00 pm - 8:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Friday:</span> <span class="time">9:00 am - 5:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Saturday:</span> <span class="time">9:00 am - 3:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
                         </div>
                     </div>
                 </div>
@@ -523,27 +652,35 @@
             
             <!-- Emily -->
             <div class="team-member">
+                <div class="member-photo">
+                    <img src="images/stylists/emily.png" alt="Emily — Color Specialist">
+                </div>
                 <div class="member-content">
                     <div class="member-header">
                         <h3>EMILY</h3>
-                        <div class="member-title">Color Specialist</div>
+                        <a href="https://www.instagram.com/christopherjsalon" target="_blank" rel="noopener noreferrer" class="member-instagram" aria-label="Emily on Instagram">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.507 5.507 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.504 3.504 0 0 0 12 9.5zM18.5 6a1 1 0 1 1-1-1 1 1 0 0 1 1 1z"/>
+                            </svg>
+                        </a>
                     </div>
+                    <div class="member-title">Color Specialist</div>
                     <div class="member-bio">
                         <p>With 25 years in the hair industry, I specialize solely in hair color, which has always been my passion. I love how color can completely transform a hairstyle, allowing for endless creativity and personalization. Each day, I am thrilled to help clients look and feel their best.</p>
                         <p>As a busy mom of three young children, my work provides a welcome creative outlet and a refreshing change from my busy family life. I am dedicated to making every client feel beautiful and confident while balancing my professional and personal responsibilities.</p>
                     </div>
-                    <div class="member-hours">
-                        <h4>Hours</h4>
-                        <div class="hours-grid">
-                            <div>
-                                <div class="hour-row"><span class="day">Monday:</span> <span class="time">-</span></div>
-                                <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">10:00 am - 3:30 pm</span></div>
-                                <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">2:00 pm - 8:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Thursday:</span> <span class="time">-</span></div>
-                                <div class="hour-row"><span class="day">Friday:</span> <span class="time">-</span></div>
-                                <div class="hour-row"><span class="day">Saturday:</span> <span class="time">10:00 am - 3:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
-                            </div>
+                </div>
+                <div class="member-hours">
+                    <h4>Hours</h4>
+                    <div class="hours-grid">
+                        <div>
+                            <div class="hour-row"><span class="day">Monday:</span> <span class="time">-</span></div>
+                            <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">10:00 am - 3:30 pm</span></div>
+                            <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">2:00 pm - 8:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Thursday:</span> <span class="time">-</span></div>
+                            <div class="hour-row"><span class="day">Friday:</span> <span class="time">-</span></div>
+                            <div class="hour-row"><span class="day">Saturday:</span> <span class="time">10:00 am - 3:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
                         </div>
                     </div>
                 </div>
@@ -551,26 +688,34 @@
             
             <!-- Nichole -->
             <div class="team-member">
+                <div class="member-photo">
+                    <img src="images/stylists/nichole.png" alt="Nichole Coffman — Stylist and Colorist">
+                </div>
                 <div class="member-content">
                     <div class="member-header">
                         <h3>NICHOLE COFFMAN</h3>
-                        <div class="member-title">Stylist and Colorist</div>
+                        <a href="https://www.instagram.com/christopherjsalon" target="_blank" rel="noopener noreferrer" class="member-instagram" aria-label="Nichole on Instagram">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.507 5.507 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.504 3.504 0 0 0 12 9.5zM18.5 6a1 1 0 1 1-1-1 1 1 0 0 1 1 1z"/>
+                            </svg>
+                        </a>
                     </div>
+                    <div class="member-title">Stylist and Colorist</div>
                     <div class="member-bio">
                         <p>With over a decade of experience as a stylist, I've honed my skills in various settings, from full-service salons to specialized all-men's salons. My expertise lies in men's cuts and color treatments—whether it's balayage, foiling, or a precise fade, I'm your go-to stylist. I pride myself on taking the time to listen and ensure you leave the salon feeling fabulous and confident. Outside of work, I enjoy going to the gym, watching Netflix, and spending time with friends, family, and my beloved cats.</p>
                     </div>
-                    <div class="member-hours">
-                        <h4>Hours</h4>
-                        <div class="hours-grid">
-                            <div>
-                                <div class="hour-row"><span class="day">Monday:</span> <span class="time">10:00 am - 3:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">1:00 pm - 8:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">-</span></div>
-                                <div class="hour-row"><span class="day">Thursday:</span> <span class="time">11:30 am - 6:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Friday:</span> <span class="time">11:00 am - 5:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Saturday:</span> <span class="time">9:00 am - 3:00 pm</span></div>
-                                <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
-                            </div>
+                </div>
+                <div class="member-hours">
+                    <h4>Hours</h4>
+                    <div class="hours-grid">
+                        <div>
+                            <div class="hour-row"><span class="day">Monday:</span> <span class="time">10:00 am - 3:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Tuesday:</span> <span class="time">1:00 pm - 8:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Wednesday:</span> <span class="time">-</span></div>
+                            <div class="hour-row"><span class="day">Thursday:</span> <span class="time">11:30 am - 6:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Friday:</span> <span class="time">11:00 am - 5:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Saturday:</span> <span class="time">9:00 am - 3:00 pm</span></div>
+                            <div class="hour-row"><span class="day">Sunday:</span> <span class="time">-</span></div>
                         </div>
                     </div>
                 </div>

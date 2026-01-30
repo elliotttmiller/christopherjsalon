@@ -90,7 +90,7 @@ This document provides a complete website build guide for Christopher J Salon, a
         :root {
             --primary-color: #000000;
             --secondary-color: #f8f8f8;
-            --accent-color: #d4af37;
+            --accent-color: #1e4aa7; /* blue accent sampled from hero image */
             --text-primary: #000000;
             --text-secondary: #666666;
             --text-light: #ffffff;
