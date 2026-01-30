@@ -1,7 +1,7 @@
 # Christopher J Salon - Professional Salon Website
 
 ## Project Overview
-This document provides a complete website build guide for Christopher J Salon, a premier salon in Plymouth, MN specializing in color, cuts, and advanced hair services located at 2700 Annapolis Cir N.
+This document provides a complete website build guide for Christopher J Salon, a premier salon in Plymouth, MN specializing in color, cuts, and advanced hair services located at [2700 Annapolis Cir N, Plymouth, MN 55441](https://maps.app.goo.gl/sKnZo4jwnBNi2iHz5).
 
 ## HTML Structure
 
@@ -626,7 +626,7 @@ This document provides a complete website build guide for Christopher J Salon, a
                     
                     <div class="contact-item">
                         <strong>Address</strong>
-                        <p>2700 Annapolis Cir N<br>Plymouth, MN 55441</p>
+                        <p><a href="https://maps.app.goo.gl/sKnZo4jwnBNi2iHz5" target="_blank" rel="noopener noreferrer" aria-label="Open Christopher J Salon address in Google Maps">2700 Annapolis Cir N<br>Plymouth, MN 55441</a></p>
                     </div>
                     
                     <div class="contact-item">

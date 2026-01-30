@@ -17,7 +17,7 @@ Christopher J Salon is dedicated to remaining on the cutting edge of the beauty 
 
 ## Location & Contact
 
-📍 **Address:** 2700 Annapolis Cir N, Plymouth, MN 55441  
+📍 **Address:** [2700 Annapolis Cir N, Plymouth, MN 55441](https://maps.app.goo.gl/sKnZo4jwnBNi2iHz5)  
 📞 **Phone:** (763) 404-8606  
 📷 **Instagram:** [@christopherjsalon](https://www.instagram.com/christopherjsalon)
 
