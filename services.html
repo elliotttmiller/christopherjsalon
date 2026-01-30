@@ -173,11 +173,12 @@
             line-height: 1.8;
         }
         
-        /* Footer */
+        /* Footer Styles - Complete implementation */
         .footer {
-            background-color: var(--background-dark);
+            background: var(--background-dark);
             color: var(--text-light);
-            padding: 3rem 0 1.5rem;
+            padding: 3rem 0 2rem;
+            text-align: center;
             margin-top: 4rem;
         }
         
@@ -186,30 +187,75 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-bottom: 2rem;
+            align-items: start;
         }
         
         .footer-section h4 {
             font-family: var(--font-display);
             font-size: 1.3rem;
             margin-bottom: 1rem;
+            color: var(--accent-color);
         }
         
-        .footer-section p,
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+        
         .footer-section a {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
+            transition: color 0.3s ease, opacity 0.3s ease;
+            opacity: 0.8;
         }
         
         .footer-section a:hover {
             color: var(--accent-color);
+            opacity: 1;
+        }
+        
+        .footer .social-links {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+        
+        .footer .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.04);
+            transition: all 0.3s ease;
+        }
+        
+        .footer .social-link:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        
+        .footer .social-icon {
+            width: 28px;
+            height: 28px;
+            fill: var(--accent-color);
+            transition: fill 0.3s ease;
+        }
+        
+        .footer .social-link:hover .social-icon {
+            fill: var(--hover-color);
         }
         
         .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
             opacity: 0.7;
         }
         
@@ -343,67 +389,48 @@
     </section>
 
     <!-- Footer -->
-    <div id="footer-placeholder"></div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Christopher J Salon</h4>
+                    <p>Premier salon in Plymouth, MN offering color, cuts, and professional hair services.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><a href="https://maps.app.goo.gl/sKnZo4jwnBNi2iHz5" target="_blank" rel="noopener noreferrer" aria-label="Open Christopher J Salon address in Google Maps">2700 Annapolis Cir N<br>Plymouth, MN 55441</a></p>
+                    <p><a href="tel:763-404-8606">(763) 404-8606</a></p>
+                </div>
+                
+                <div class="footer-section footer-follow">
+                    <h4>Follow Us</h4>
+                    <div class="social-links" aria-label="Social links">
+                        <a class="social-link" href="https://www.facebook.com/ChristopherJSalonMN" target="_blank" rel="noopener noreferrer" aria-label="Christopher J Salon on Facebook">
+                            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.99H7.898v-2.888h2.54V9.413c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.462h-1.26c-1.242 0-1.63.772-1.63 1.562v1.875h2.773l-.443 2.888h-2.33v6.99C18.343 21.128 22 16.99 22 12z"/>
+                            </svg>
+                        </a>
 
-    <!-- Fallback footer for SEO and no-JavaScript scenarios -->
-    <noscript>
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-section">
-                        <h4>Christopher J Salon</h4>
-                        <p>Premier salon in Plymouth, MN offering color, cuts, and professional hair services.</p>
-                    </div>
-                    <div class="footer-section">
-                        <h4>Contact</h4>
-                        <p><a href="https://maps.app.goo.gl/sKnZo4jwnBNi2iHz5" target="_blank" rel="noopener noreferrer">2700 Annapolis Cir N<br>Plymouth, MN 55441</a></p>
-                        <p><a href="tel:763-404-8606">(763) 404-8606</a></p>
-                    </div>
-                    <div class="footer-section">
-                        <h4>Hours</h4>
-                        <p>Tue-Fri: 9AM-6PM<br>Saturday: 9AM-4PM<br>Sun-Mon: Closed</p>
+                        <a class="social-link" href="https://www.instagram.com/christopherjsalon" target="_blank" rel="noopener noreferrer" aria-label="Christopher J Salon on Instagram">
+                            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.507 5.507 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.504 3.504 0 0 0 12 9.5zM18.5 6a1 1 0 1 1-1-1 1 1 0 0 1 1 1z"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2026 Christopher J Salon. All rights reserved.</p>
+                
+                <div class="footer-section">
+                    <h4>Hours</h4>
+                    <p>Tue-Fri: 9AM-6PM<br>Saturday: 9AM-4PM<br>Sun-Mon: Closed</p>
                 </div>
             </div>
-        </footer>
-    </noscript>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Christopher J Salon. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    <script>
-        // Load shared footer with proper error handling
-        fetch('_footer.html')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Footer not found');
-                }
-                return response.text();
-            })
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            })
-            .catch(error => {
-                console.error('Error loading footer:', error);
-                // Fallback to basic footer if fetch fails
-                document.getElementById('footer-placeholder').innerHTML = `
-                    <footer class="footer">
-                        <div class="container">
-                            <div class="footer-content">
-                                <div class="footer-section">
-                                    <h4>Christopher J Salon</h4>
-                                    <p>Premier salon in Plymouth, MN offering color, cuts, and professional hair services.</p>
-                                </div>
-                                <div class="footer-section">
-                                    <h4>Contact</h4>
-                                    <p><a href="tel:763-404-8606">(763) 404-8606</a></p>
-                                    <p>2700 Annapolis Cir N, Plymouth, MN 55441</p>
-                                </div>
-                            </div>
-                        </div>
-                    </footer>
-                `;
-            });
-    </script>
 </body>
 </html>
