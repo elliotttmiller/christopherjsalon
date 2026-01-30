@@ -463,51 +463,67 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Christopher J Salon</h4>
-                    <p>Premier salon in Plymouth, MN</p>
-                    <p>Expert color, cuts, and advanced hair services</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p><a href="https://maps.app.goo.gl/sKnZo4jwnBNi2iHz5" target="_blank" rel="noopener noreferrer" aria-label="Open Christopher J Salon address in Google Maps">2700 Annapolis Cir N<br>Plymouth, MN 55441</a></p>
-                    <p>Phone: (763) 404-8606</p>
-                    <p>Email: salon@christopherjsalon.com</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Hours</h4>
-                    <p>Tuesday - Friday: 9:00 AM - 6:00 PM</p>
-                    <p>Saturday: 9:00 AM - 4:00 PM</p>
-                    <p>Sunday - Monday: Closed</p>
-                </div>
-                
-                <div class="footer-section footer-follow">
-                    <h4>Follow Us</h4>
-                    <div class="social-links" aria-label="Social links">
-                        <a class="social-link" href="https://www.facebook.com/ChristopherJSalonMN" target="_blank" rel="noopener noreferrer" aria-label="Christopher J Salon on Facebook">
-                            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                <path d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.99H7.898v-2.888h2.54V9.413c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.462h-1.26c-1.242 0-1.63.772-1.63 1.562v1.875h2.773l-.443 2.888h-2.33v6.99C18.343 21.128 22 16.99 22 12z"/>
-                            </svg>
-                        </a>
+    <div id="footer-placeholder"></div>
 
-                        <a class="social-link" href="https://www.instagram.com/christopherjsalon" target="_blank" rel="noopener noreferrer" aria-label="Christopher J Salon on Instagram">
-                            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.507 5.507 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.504 3.504 0 0 0 12 9.5zM18.5 6a1 1 0 1 1-1-1 1 1 0 0 1 1 1z"/>
-                            </svg>
-                        </a>
+    <!-- Fallback footer for SEO and no-JavaScript scenarios -->
+    <noscript>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h4>Christopher J Salon</h4>
+                        <p>Premier salon in Plymouth, MN offering color, cuts, and professional hair services.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <p><a href="https://maps.app.goo.gl/sKnZo4jwnBNi2iHz5" target="_blank" rel="noopener noreferrer">2700 Annapolis Cir N<br>Plymouth, MN 55441</a></p>
+                        <p><a href="tel:763-404-8606">(763) 404-8606</a></p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Hours</h4>
+                        <p>Tue-Fri: 9AM-6PM<br>Saturday: 9AM-4PM<br>Sun-Mon: Closed</p>
                     </div>
                 </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Christopher J Salon. All rights reserved.</p>
+                </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 Christopher J Salon. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+        </footer>
+    </noscript>
+
+    <script>
+        // Load shared footer with proper error handling
+        fetch('_footer.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Footer not found');
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error loading footer:', error);
+                // Fallback to basic footer if fetch fails
+                document.getElementById('footer-placeholder').innerHTML = `
+                    <footer class="footer">
+                        <div class="container">
+                            <div class="footer-content">
+                                <div class="footer-section">
+                                    <h4>Christopher J Salon</h4>
+                                    <p>Premier salon in Plymouth, MN offering color, cuts, and professional hair services.</p>
+                                </div>
+                                <div class="footer-section">
+                                    <h4>Contact</h4>
+                                    <p><a href="tel:763-404-8606">(763) 404-8606</a></p>
+                                    <p>2700 Annapolis Cir N, Plymouth, MN 55441</p>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                `;
+            });
+    </script>
 </body>
 </html>
