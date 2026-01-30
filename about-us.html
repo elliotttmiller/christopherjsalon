@@ -23,7 +23,7 @@
         /* CSS Variables - Christopher J Salon dark theme */
         :root {
             --primary-color: #ffffff;
-            --secondary-color: #1a1a1a;
+            --secondary-color: #0a0a0a;
             --accent-color: #1e4aa7; /* blue accent sampled from hero image */
             --text-primary: #ffffff;
             --text-secondary: #b0b0b0;
@@ -31,7 +31,7 @@
             --background-light: #0f0f0f;
             --background-dark: #000000;
             --background-card: #1a1a1a;
-            --background-accent: #252525;
+            --background-accent: #0a0a0a;
             --hover-color: #2d5fc4; /* lighter blue for hover on dark */
             --border-color: #333333;
             
@@ -335,29 +335,24 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: var(--background-card);
-            border: 1px solid var(--border-color);
+            width: 32px;
+            height: 32px;
             transition: all 0.3s ease;
         }
         
         .footer .social-link:hover {
-            border-color: var(--accent-color);
-            background: rgba(30,74,167,0.1);
             transform: translateY(-2px);
         }
         
         .footer .social-icon {
             width: 28px;
             height: 28px;
-            fill: var(--accent-color);
+            fill: var(--text-primary);
             transition: fill 0.3s ease;
         }
         
         .footer .social-link:hover .social-icon {
-            fill: var(--hover-color);
+            fill: var(--accent-color);
         }
         
         .footer-bottom {
@@ -530,7 +525,7 @@
                 
                 <div class="footer-section">
                     <h4>Hours</h4>
-                    <p>Tue-Fri: 9AM-6PM<br>Saturday: 9AM-4PM<br>Sun-Mon: Closed</p>
+                    <p>Monday: 10AM-3PM<br>Tue-Wed: 9AM-8PM<br>Thursday: 9AM-7PM<br>Friday: 9AM-5PM<br>Saturday: 9AM-3PM<br>Sunday: Closed</p>
                 </div>
             </div>
             
